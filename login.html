@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Affordable and professional web design">
+	  <meta name="keywords" content="web design, affordable web design, professional web design">
+  	<meta name="author" content="wycliffe ochieng'">
+  	<link rel="icon" href="./img/favicon.ico">
+    <title>SMS Delivery | Login</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">SMS</span> Delivery Center</h1>
+        </div>
+        <nav>
+          <p><blink>Please login with your credentials</blink></p>
+        </nav>
+      </div>
+    </header>
+
+    <section id="showcase">
+		<table align="center" cellpadding="10" border="0">
+		<!--<form  method="post" action="transact-user.php" onsubmit="return validateForm();" name = "myForm"> -->
+		<form  method="post" action="http://localhost:3001/home.html" onsubmit="return validateForm();" name = "myForm">
+		<tr><td><font color="white" size="4px"><b><p align="left">Username</p></b></td></tr>
+		<tr><td><input type="text" maxlength="25" name="email" size="60" style="height:35px;border-radius:15px;"></td></tr>
+		<tr><td><font color="white"size="4px"><b><p align="left">Password</p></td></tr>
+		<tr><td><input type="password" name="passwd" size="60" style="height:30px;border-radius:15px;"></td></tr>
+		<tr>
+		<td align="right">
+		<input type="submit" name="action" value="Login" style="height:40px; width:80px;"/>		
+		</td>
+		</tr>
+		</font>
+		<tr><td><font size="4px"><a href="">Forgot your Password?</a></td></tr>	
+		<tr><td><font size="4px"><a href="">Forgot your Username?</a></td></tr>
+		</tr>
+		</form>
+		</table>
+		
+    </section>
+    <footer id="footerlogin">
+      <p>SMS Center, Copyright &copy; 2019</p>
+    </footer>
+  </body>
+</html>
