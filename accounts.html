@@ -10,7 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 
-  <title>Wybosoft | Checker</title>
+  <title>Wybosoft | Transactions</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <script>
@@ -20,7 +20,7 @@
 </script>
 <body>
   <script>
-    fetch('http://127.0.0.1:9000/v1/accounts')
+    fetch('http://127.0.0.1:9000/v1/transactions')
       .then(function (response) {
         return response.json();
         console.log(response.json());
@@ -28,17 +28,15 @@
       .then(function (data) {
         var customer_data = '';
         var value = data.Data;
-        console.log(value)
-        console.log(value.length)
+        console.log(value);
+        console.log(value.length);
+        //transactionID | cid    | transaction_date    | amount
         for (var i = 0; i < value.length; i++) {
           customer_data += '<tr>';
-          customer_data += '<td>' + value[i].firstName + '</td>';
-          customer_data += '<td>' + value[i].lastName + '</td>';
+          customer_data += '<td>' + value[i].transactionID + '</td>';
+          customer_data += '<td>' +'KSH.'+ value[i].amount + '</td>';
+          customer_data += '<td>' + value[i].transaction_date + '</td>';
           customer_data += '<td>' + value[i].cid + '</td>';
-          customer_data += '<td>' + value[i].email + '</td>';
-          customer_data += '<td>' + value[i].msisdn + '</td>';
-          customer_data += '<td>' + value[i].token + '</td>';
-          customer_data += '<td>' + value[i].balance + '</td>';
           customer_data += '</tr>'
 
         }
@@ -55,8 +53,8 @@
       </div>
       <nav>
         <ul>
-          <li><a href="/home.html">Home</a></li>
-          <li><a href="accounts.html">Transactions</a></li>
+          <li><a href="http://www.wybosoftbank.com:8080/home.html">Home</a></li>
+          <li><a href="checker.html">Customers</a></li>
           <li class="current"><a href="/login.html">Logout</a></li>
         </ul>
       </nav>
@@ -65,15 +63,12 @@
 
   <section id="main">
     <div class="container">
-      <table id="blast">
+      <table id="blast" style="overflow-y:auto;">
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
+          <th>Transaction ID</th>
+          <th>Transaction Amount</th>
+          <th>Transaction Date</th>
           <th>Customer ID</th>
-          <th>Email Address</th>
-          <th>Mobile Number</th>
-          <th>Account Token</th>
-          <th>KES Balance</th>
         </tr>
 
       </table>

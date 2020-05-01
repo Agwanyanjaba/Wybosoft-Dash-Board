@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Affordable and professional web design">
-	  <meta name="keywords" content="web design, affordable web design, professional web design">
-  	<meta name="author" content="wycliffe ochieng'">
+    <meta name="description" content="Affordable and professional Banking">
+    <meta name="keywords" content="Banking, wybosoft banking, services  mobile banking">
+    <meta name="author" content="wycliffe ochieng'">
   	<link rel="icon" href="./img/favicon.ico">
     <title>Wybosoft | Login</title>
     <link rel="stylesheet" href="./css/style.css">
@@ -14,7 +14,7 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">Wybosoft</span> Bank</h1>
+          <h1><span class="highlight">Wybosoft</span>Bank</h1>
         </div>
         <nav>
           <p><blink>Please login with your credentials</blink></p>
@@ -25,7 +25,7 @@
     <section id="showcase">
 		<table align="center" cellpadding="10" border="0">
 		<!--<form  method="post" action="transact-user.php" onsubmit="return validateForm();" name = "myForm"> -->
-		<form  method="get" action="/home.html" onsubmit="return validateForm();" name = "myForm">
+		<form  method="POST" action="landing.html" onsubmit="return validateForm();" name = "myForm">
 		<tr><td><font color="white" size="4px"><b><p align="left">Username</p></b></td></tr>
 		<tr><td><input type="text" maxlength="25" name="email" size="60" style="height:35px;border-radius:15px;"></td></tr>
 		<tr><td><font color="white"size="4px"><b><p align="left">Password</p></td></tr>
@@ -41,10 +41,17 @@
 		</tr>
 		</form>
 		</table>
-		
+		<script>
+      //Declare current year
+      var year = new Date();
+        var currentYear = year.getFullYear();
+    </script>
     </section>
     <footer id="footerlogin">
-      <p>SMS Center, Copyright &copy; 2019</p>
+      <p>Wybosoft Bank Center, Copyright &copy;Wybosoft <script>
+          document.write(currentYear);
+        </script>
+      </p>
     </footer>
   </body>
 </html>

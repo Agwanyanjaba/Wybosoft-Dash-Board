@@ -247,6 +247,23 @@ footer{
   #rcorners {
   border-radius: 15px;
  
-} 
+}
+tr:nth-child(even){background-color: #f2f2f2}
+progress[value]  {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* Get rid of default border in Firefox. */
+  border: none;
+
+  /* Dimensions */
+  width: 250px;
+  height: 20px;
+
+  /* For IE10 */
+  color: blue; 
+}
 }
 

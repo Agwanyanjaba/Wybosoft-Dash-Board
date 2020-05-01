@@ -43,6 +43,11 @@ wybosoftapp.get('/accounts.html',function(req,res){
 wybosoftapp.get('/accounts.js',function(req,res){
   res.sendFile(path.join(__dirname+'/accounts.js'));
 });
+
+wybosoftapp.post('/landing.html',function(req,res){
+  res.sendFile(path.join(__dirname+'/landing.html'));
+});
+
 wybosoftapp.get('/checker.html',function(req,res){
   res.sendFile(path.join(__dirname+'/checker.html'));
 });
@@ -57,10 +62,6 @@ wybosoftapp.get('/services.html',function(req,res){
 
 wybosoftapp.get('/home.html', function(req, res){
   res.sendFile(path.join(__dirname+'/home.html'))
-});
-
-wybosoftapp.get('/compose.html',function(req,res){
-  res.sendFile(path.join(__dirname+'/compose.html'));
 });
 //add the router
 //wybosoftapp.listen(process.env.port || 80);
