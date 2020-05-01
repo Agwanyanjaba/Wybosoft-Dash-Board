@@ -1,138 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Affordable and professional SMS Delivery">
-	  <meta name="keywords" content="SMS delivery, affordable SMS blasting, professional sms delivery">
-  	<meta name="author" content="Brad Traversy">
-    <title>SMS Delivery | Checker</title>
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-      <script>
-          fetch('localhost:3005/users')
-              .then(function (response) {
-                  return response.json();
-              })
-              .then(function (data) {
-                  appendData(data);
-              })
-              .catch(function (err) {
-                  console.log('error: ' + err);
-              });
-          function appendData(data) {
-              var mainContainer = document.getElementById("myData");
-              for (var i = 0; i < data.length; i++) {
-                  var div = document.createElement("div");
-                  div.innerHTML = 'Name: ' + data[i].firstName + ' ' + data[i].lastName;
-                  mainContainer.appendChild(div);
-              }
-          }
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Affordable and professional SMS Delivery">
+  <meta name="keywords" content="SMS delivery, affordable SMS blasting, professional sms delivery">
+  <meta name="author" content="Brad Traversy">
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+  <title>Wybosoft | Checker</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <script>
+    fetch('http://127.0.0.1:9000/v1/accounts')
+      .then(function (response) {
+        return response.json();
+        console.log(response.json());
+      })
+      .then(function (data) {
+        var customer_data = '';
+        var value = data.Data;
+        console.log(value)
+        console.log(value.length)
+        for (var i = 0; i < value.length; i++) {
+
+          customer_data += '<tr>';
+          customer_data += '<td>' + value[i].firstName + '</td>';
+          customer_data += '<td>' + value[i].lastName + '</td>';
+          customer_data += '<td>' + value[i].cid + '</td>';
+          customer_data += '<td>' + value[i].eur + '</td>';
+          customer_data += '<td>' + value[i].kes + '</td>';
+          customer_data += '<td>' + value[i].usd + '</td>';
+          customer_data += '</tr>'
+
+        }
+        $('#blast').append(customer_data);
+
+        console.log(data);
+      })
+  </script>
+
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Wybosoft</span>Bank</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="home.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="main">
+    <div class="container">
+      <table id="blast">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Customer ID</th>
+          <th>EUR Balance</th>
+          <th>KES Balance</th>
+          <th>USD Balance</th>
+        </tr>
+
+      </table>
+      <div></div>
+
+
+      <form class="quote" enctype="multipart/form-data">
+        <button class="button_1" type="submit" id="submit" name="import">Submit</button>
+      </form>
+    </div>
+    </asideleft>
+    </article>
+
+    </div>
+  </section>
+
+  <footer id="footerlogin">
+    <p>Wybosoft Bank Center, Copyright &copy;Wybosoft <script>
+        document.write(currentYear);
       </script>
+    </p>
+  </footer>
+</body>
 
-
-
-
-    <header>
-      <div class="container">
-        <div id="branding">
-          <h1><span class="highlight">SMS</span> Delivery Center</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="current"><a href="home.html">Logout</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <section id="main">
-      <div class="container">
-        <table id="blast">
-          <tr>
-            <th>MSISDN</th>
-            <th>Message</th>
-            <th>Broadcast ID</th>
-            <th>OA</th>
-          </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Berglunds snabbköp</td>
-            <td>Christina Berglund</td>
-            <td>Sweden</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Mexico</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Ernst Handel</td>
-            <td>Roland Mendel</td>
-            <td>Austria</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Island Trading</td>
-            <td>Helen Bennett</td>
-            <td>UK</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Königlich Essen</td>
-            <td>Philip Cramer</td>
-            <td>Germany</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Canada</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Giovanni Rovelli</td>
-            <td>Italy</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>North/South</td>
-            <td>Simon Crowther</td>
-            <td>UK</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Paris spécialités</td>
-            <td>Marie Bertrand</td>
-            <td>France</td>
-            <td>Germany</td>
-          </tr>
-        </table>
-        <div></div>
-
-
-            <form class="quote"  enctype="multipart/form-data">
-  						<button class="button_1" type="submit" id="submit" name="import">Submit</button>
-			      </form>
-          </div>
-        </asideleft>
-        </article>
-
-      </div>
-    </section>
-
-    <footer id="footerlogin">
-      <p>SMS Center, Copyright &copy; 2019</p>
-    </footer>
-  </body>
 </html>

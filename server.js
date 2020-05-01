@@ -1,44 +1,69 @@
 //App server configurations
 const express = require('express');
-const app = express();
 const path = require('path');
 //const router = express.Router();
 
-app.use('/css', express.static('css'));
-app.use('/img', express.static('img'));
-app.get('/',function(req,res){
+const cors = require('cors');
+//const router = express.Router();
+const bodyParser = require('body-parser');
+wybosoftapp = express();
+
+
+wybosoftapp.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+  });
+  
+  wybosoftapp.use(bodyParser.json());
+
+
+
+  wybosoftapp.use('/css', express.static('css'));
+  wybosoftapp.use('/img', express.static('img'));
+  wybosoftapp.get('/',function(req,res){
   //res.sendFile(path.join(__dirname+'./index.html'));
   res.sendFile(path.join(__dirname, 'index.html'));
   //__dirname : It will resolve to project folder.
 });
 
-app.get('/about.html',function(req,res){
+wybosoftapp.get('/about.html',function(req,res){
   res.sendFile(path.join(__dirname+'/about.html'));
 });
 
-app.get('/login.html',function(req,res){
+wybosoftapp.get('/login.html',function(req,res){
   res.sendFile(path.join(__dirname+'/login.html'));
 });
 
-app.get('/compose.html',function(req,res){
-  res.sendFile(path.join(__dirname+'/compose.html'));
+wybosoftapp.get('/accounts.html',function(req,res){
+  res.sendFile(path.join(__dirname+'/accounts.html'));
 });
-app.get('/checker.html',function(req,res){
+
+wybosoftapp.get('/accounts.js',function(req,res){
+  res.sendFile(path.join(__dirname+'/accounts.js'));
+});
+wybosoftapp.get('/checker.html',function(req,res){
   res.sendFile(path.join(__dirname+'/checker.html'));
 });
 
-app.get('/index.html',function(req,res){
+wybosoftapp.get('/index.html',function(req,res){
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
-app.get('/services.html',function(req,res){
+wybosoftapp.get('/services.html',function(req,res){
   res.sendFile(path.join(__dirname+'/services.html'));
 });
 
-app.post('/home.html', function(req, res){
+wybosoftapp.get('/home.html', function(req, res){
   res.sendFile(path.join(__dirname+'/home.html'))
-})
-//add the router
-app.listen(process.env.port || 3001);
+});
 
-console.log('Running at Port 3001');
+wybosoftapp.get('/compose.html',function(req,res){
+  res.sendFile(path.join(__dirname+'/compose.html'));
+});
+//add the router
+//wybosoftapp.listen(process.env.port || 80);
+wybosoftapp.listen(8080);
+
+console.log('Running at Port 80');
